@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package bank;
+
+service Bank {
+    rpc MsgDelivery (TransactionRequest) returns (TransactionResponse);
+}
+
+message TransactionRequest {
+    int32 customer_id = 1;
+    string operation = 2;
+    int32 amount = 3;
+}
+
+message TransactionResponse {
+    string status = 1;
+    int32 balance = 2;
+}
